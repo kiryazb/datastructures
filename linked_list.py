@@ -28,6 +28,9 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
+    def insert(self, value, pos):
+        pass
+
     def print_list(self):
         current = self.head
         while current:
