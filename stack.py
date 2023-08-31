@@ -17,6 +17,16 @@ class Stack:
             new_node.next = self.head
             self.head = new_node
 
+    def _TopToTop(self, stack1, stack2):
+        pass
+
+    def PopStack(self):
+        new_node = self.head
+        value = new_node.val
+        self.head = new_node.next
+        del new_node
+        return value
+
     def PrintStack(self):
         current = self.head
         while current:
@@ -32,4 +42,6 @@ if __name__ == "__main__":
     stack.PushStack(5)
     stack.PrintStack()
     stack.PushStack(15)
+    stack.PrintStack()
+    stack.PopStack()
     stack.PrintStack()
