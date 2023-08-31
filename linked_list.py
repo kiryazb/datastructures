@@ -28,13 +28,25 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-    def insert(self, value, pos):
-        pass
+    def insert(self, pos, value):
+        current_node = self.head
+        new_node = Node(value)
+        for i in range(pos - 1):
+            if current_node.next:
+                current_node = current_node.next
+            else:
+                print("Incorrect pos")
+                return -1
+        new_node.next = current_node.next
+        current_node.next = new_node
 
     def print_list(self):
         current = self.head
         while current:
-            print(current.val)
+            if current.next:
+                print(current.val, end=' ')
+            else:
+                print(current.val)
             current = current.next
 
 
@@ -46,4 +58,6 @@ if __name__ == "__main__":
     linked.append_to_begin(7)
     linked.append_to_begin(8)
     linked.append(13)
+    linked.print_list()
+    linked.insert(8, 222)
     linked.print_list()
