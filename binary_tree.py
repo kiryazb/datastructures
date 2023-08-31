@@ -20,7 +20,7 @@ class Tree:
             pass
 
     def _recursion_append(self, value, node):
-        if value < node.value:
+        if value < node.val:
             if node.left is None:
                 node.left = Node(value)
             else:
@@ -31,9 +31,35 @@ class Tree:
             else:
                 self._recursion_append(value, node.right)
 
+    def print_tree(self):
+        if self.head:
+            print(self.head.val)
+            if self.head.left:
+                self._recursion_print(self.head.left)
+            if self.head.right:
+                self._recursion_print(self.head.right)
+        else:
+            print("tree is empty")
+
+
+    def _recursion_print(self, node):
+        print(node.val)
+        if node.left:
+            self._recursion_print(node.left)
+        if node.right:
+            self._recursion_print(node.right)
+
+
 
 if __name__ == "__main__":
-    pass
+    tree = Tree()
+    tree.append(5)
+    tree.print_tree()
+    tree.append(4)
+    tree.print_tree()
+    tree.append(6)
+    tree.print_tree()
+
 
 
 
